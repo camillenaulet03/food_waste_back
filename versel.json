@@ -1,8 +1,27 @@
 {
   "version": 2,
+  "buildCommand": "nodemon -r dotenv/config index.js",
+  "functions": {
+    "api/*.js": {
+      "memory": 3008,
+      "maxDuration": 30
+    },
+    "controllers/*.js": {
+      "memory": 3008,
+      "maxDuration": 30
+    },
+    "log/*.js": {
+      "memory": 3008,
+      "maxDuration": 30
+    },
+    "models/*.js": {
+      "memory": 3008,
+      "maxDuration": 30
+    }
+  },
   "builds": [
     {
-      "src": "./index.js",
+      "src": "*.js",
       "use": "@vercel/node"
     }
   ],
