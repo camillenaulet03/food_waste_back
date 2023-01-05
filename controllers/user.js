@@ -4,7 +4,7 @@ const User = require("../models/user");
 exports.login = (req, res, next) => {
     User.findOne({username: req.body.username})
         .then((user) => {
-            if (!user) console.log("No user found")
+            if (!user) res.status(404).json({message: "No user found"})
             else {
                 const token = jwt.sign({userId: user._id}, process.env.JWT_KEY, {expiresIn: '24h'});
                 res.json({
@@ -17,11 +17,11 @@ exports.login = (req, res, next) => {
 
 exports.createUser = (req, res, next) => {
     if (req.body.password !== req.body.confirmPassword)
-        console.log("Password and confirm password are different")
+    res.status(400).json({message: "Password and confirm password are different"})
     else {
         User.findOne({username: req.body.username})
             .then((user) => {
-                if (user) console.log("Username already taken");
+                if (user) res.status(400).json({message: "Username already taken"});
                 else {
                     const user = new User({
                         username: req.body.username,
@@ -39,9 +39,9 @@ exports.logout = (req, res, next) => {
     const authHeader = req.headers["authorization"];
     jwt.sign(authHeader, "", { expiresIn: 1 } , (logout, err) => {
         if (logout) {
-            res.send({msg : 'You have been logged out' });
+            res.status(500).json({message : 'You have been logged out' });
         } else {
-            res.send({msg: err});
+            res.status(500).json({message: err});
         }
     });
 }
