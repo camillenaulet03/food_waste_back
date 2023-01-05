@@ -4,7 +4,7 @@ const Joi = require("joi")
 exports.getAll = (req, res, next) => {
     Waste.find({})
     .then((wastes) => {
-        if (!wastes) res.status(500).json({message: "No waste found"})
+        if (!wastes) res.status(404).json({message: "No waste found"})
         else{
             res.status(200).json(wastes);
         }
@@ -14,7 +14,7 @@ exports.getAll = (req, res, next) => {
 exports.getOne = (req, res, next) => {
     Waste.findOne({_id : req.params.id})
     .then((waste) => {
-        if (!waste) res.status(500).json({message: "Waste not found"})
+        if (!waste) res.status(404).json({message: "Waste not found"})
         else{
             res.status(200).json(waste);
         }
@@ -60,7 +60,7 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     Waste.deleteOne({_id : req.params.id})
     .then((waste) => {
-        if (!waste.deletedCount) res.status(500).json({message: "Waste not found"})
+        if (!waste.deletedCount) res.status(404).json({message: "Waste not found"})
         else res.status(200).json({message: "Waste deleted successfully"})
     })
 }
