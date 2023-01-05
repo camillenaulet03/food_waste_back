@@ -2,7 +2,7 @@
 const port = process.env.PORT || 8083;
 // const app = require('./app');
 const express = require('express');
-const wasteRoutes = require("./routes/waste");
+const wasteRoutes = require("./api/waste");
 const app = express();
 app.use(express.json({extended: false}));
 

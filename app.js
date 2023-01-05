@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const logger = require('./log/logger');
 
-const userRoutes = require('./routes/user');
-const wasteRoutes = require('./routes/waste');
+const userRoutes = require('./api/user');
+const wasteRoutes = require('./api/waste');
 
 const app = express();
 // app.use(helmet())
