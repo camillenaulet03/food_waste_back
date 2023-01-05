@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const wasteController = require('../controllers/waste');
+const wasteController = require('../api/controllers/waste');
 
 router.get('/', wasteController.getAll);
 router.get('/:id', wasteController.getOne);

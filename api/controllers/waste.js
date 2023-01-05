@@ -1,6 +1,6 @@
 const Waste = require("../models/waste");
 const Joi = require("joi")
-const logger = require('../log/logger');
+const logger = require('../../log/logger');
 
 
 exports.getAll = (req, res, next) => {
