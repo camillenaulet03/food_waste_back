@@ -24,6 +24,6 @@ const userRoutes = require('./routes/user');
 const wasteRoutes = require('./routes/waste');
 
 app.use('/api/auth', userRoutes)
-app.use('/api/waste', wasteRoutes);
+app.use('/api/wastes', wasteRoutes);
 
 module.exports = app;

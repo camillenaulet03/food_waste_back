@@ -15,7 +15,7 @@ const wasteSchema = mongoose.Schema(
       required: [true, `La quantité est requise`],
     },
     expiration_date: {
-      type: String,
+      type: Date,
       required: [true, `La date limite de consommation est requise`],
     },
     is_collected: {
