@@ -6,7 +6,7 @@ const wasteRoutes = require("./api/waste");
 const app = express();
 app.use(express.json({extended: false}));
 
-app.use('/api/wastes', wasteRoutes);
+app.use('/api/waste', wasteRoutes);
 
 // const server = http.createServer(app);
 
