@@ -21,7 +21,9 @@ mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWOR
 app.use(bodyParser.json());
 
 const userRoutes = require('./routes/user');
+const wasteRoutes = require('./routes/waste');
 
-app.use('/api/auth', userRoutes);
+app.use('/api/auth', userRoutes)
+app.use('/api/waste', wasteRoutes);
 
 module.exports = app;
