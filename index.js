@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json({extended: false}));
 
 app.use('/api/wastes', wasteRoutes);
+app.use(express.static('public'))
 
 // const server = http.createServer(app);
 
