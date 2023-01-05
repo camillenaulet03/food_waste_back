@@ -20,9 +20,9 @@ const app = express();
 //   });
 
 
-mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWORD+"@cluster0.n6g726d.mongodb.net/?retryWrites=true&w=majority")
-  .then(() => logger.info('✅ Successfully connected to the database'))
-  .catch((e) => logger.error(`⛔️ Error during database connection - ${e}`))
+// mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWORD+"@cluster0.n6g726d.mongodb.net/?retryWrites=true&w=majority")
+//   .then(() => logger.info('✅ Successfully connected to the database'))
+//   .catch((e) => logger.error(`⛔️ Error during database connection - ${e}`))
 
 app.use(express.json({extended: false}));
 
