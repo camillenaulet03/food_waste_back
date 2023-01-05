@@ -25,8 +25,9 @@ exports.create = (req, res, next) => {
         console.log(req.body);
         res.status(500).json({message: error.message + req.body.label})
     }else{
-        const waste = Waste.create(value);
-        res.status(200).json(waste)
+        Waste.create(value)
+            .then((data) => res.status(200).json(data))
+            .catch(() => res.status(500).json({message: 'Error during creating waste'})); 
     }
 
 }
