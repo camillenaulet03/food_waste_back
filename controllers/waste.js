@@ -41,4 +41,11 @@ exports.create = (req, res, next) => {
     }
 }
 
+exports.delete = (req, res, next) => {
+    Waste.deleteOne({_id : req.params.id})
+    .then((waste) => {
+        if (!waste.deletedCount) res.status(500).json({message: "Waste not found"})
+        else res.status(200).json({message: "Waste deleted successfully"})
+    })
+}
 
