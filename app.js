@@ -13,12 +13,10 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
-const db = 'mongodb+srv://camille:1H8F8xIDgG0qPbpw@cluster0.n6g726d.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(db)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch((err) => {
-        console.log('MongoDB ERROR CONNECT', err)
-});
+
+mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWORD+"@cluster0.n6g726d.mongodb.net/?retryWrites=true&w=majority")
+  .then(() => console.log('✅ Successfully connected to the database'))
+  .catch((e) => console.log(`⛔️ Error during database connection ${e}`))
 
 app.use(bodyParser.json());
 
