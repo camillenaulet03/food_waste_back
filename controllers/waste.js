@@ -11,6 +11,16 @@ exports.getAll = (req, res, next) => {
     })
 }
 
+exports.getOne = (req, res, next) => {
+    Waste.findOne({_id : req.params.id})
+    .then((waste) => {
+        if (!waste) res.status(500).json({message: "Waste not found"})
+        else{
+            res.status(200).json(waste);
+        }
+    })
+}
+
 exports.create = (req, res, next) => {
     const wasteValidationSchema = Joi.object({
         label: Joi.string().required(),
@@ -29,5 +39,6 @@ exports.create = (req, res, next) => {
             .then((data) => res.status(200).json(data))
             .catch(() => res.status(500).json({message: 'Error during creating waste'})); 
     }
-
 }
+
+
