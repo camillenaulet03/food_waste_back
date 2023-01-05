@@ -1,5 +1,7 @@
 const Waste = require("../models/waste");
 const Joi = require("joi")
+const logger = require('../log/logger');
+
 
 exports.getAll = (req, res, next) => {
     Waste.find({})
@@ -35,7 +37,10 @@ exports.create = (req, res, next) => {
     else{
         Waste.create(value)
             .then((data) => res.status(200).json(data))
-            .catch(() => res.status(500).json({message: 'Error during creating waste'})); 
+            .catch((e) => {
+                res.status(500).json({message: 'Error during creating waste'});
+        }); 
+
     }
 }
 
@@ -53,15 +58,18 @@ exports.update = (req, res, next) => {
     else{
         Waste.findByIdAndUpdate(req.params.id, value, {new: true})
             .then((data) => res.status(200).json(data))
-            .catch(() => res.status(500).json({message: 'Error during update waste'})); 
+            .catch(() => {
+                res.status(500).json({message: 'Error during update waste'});
+                logger.error(`Error during update waste : ${e}`);
+            }); 
     }
 }
 
 exports.delete = (req, res, next) => {
     Waste.deleteOne({_id : req.params.id})
     .then((waste) => {
-        if (!waste.deletedCount) res.status(404).json({message: "Waste not found"})
-        else res.status(200).json({message: "Waste deleted successfully"})
+        if (!waste.deletedCount) res.status(404).json({message: "Waste not found"});
+        else res.status(200).json({message: "Waste deleted successfully"});
     })
 }
 

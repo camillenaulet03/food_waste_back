@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
+const logger = require('../log/logger');
 
 exports.login = (req, res, next) => {
     User.findOne({username: req.body.username})
@@ -17,7 +18,7 @@ exports.login = (req, res, next) => {
 
 exports.createUser = (req, res, next) => {
     if (req.body.password !== req.body.confirmPassword)
-    res.status(400).json({message: "Password and confirm password are different"})
+        res.status(400).json({message: "Password and confirm password are different"})
     else {
         User.findOne({username: req.body.username})
             .then((user) => {
@@ -29,7 +30,10 @@ exports.createUser = (req, res, next) => {
                     });
                     user.save()
                         .then((saved) => res.status(200).json(saved))
-                        .catch(() => res.status(500).json({message: 'Error during creating user'}))
+                        .catch((e) => {
+                            logger.error(`Error during creating user : ${e}`)
+                            res.status(500).json({message: 'Error during creating user'});
+                        })
                 }
             })
     }
