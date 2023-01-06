@@ -118,7 +118,7 @@ router.post('/login', userController.login);
  * path:
  * /api/auth/logout:
  *   post:
- *    summary: Log user in by providing a token
+ *    summary: Logout user 
  *    tags: [User]
  *    requestBody:
  *      required: true

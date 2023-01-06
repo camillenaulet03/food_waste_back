@@ -51,7 +51,7 @@ const options = {
       },
     ],
   },
-  apis: ["./routes/waste.js", "./routes/user.js"],
+  apis: ["./routes/user.js", "./routes/waste.js", "./routes/soapSubstract.js"],
   prefix : ["api/waste/"],
 };
 

@@ -14,7 +14,6 @@ const auth = require('../middlewares/auth');
  *         - issuing_company
  *         - quantity
  *         - expiration_date
- *         - is_collected
  *       properties:
  *         _id:
  *           type: ObjectId
@@ -44,6 +43,16 @@ const auth = require('../middlewares/auth');
 
 /**
  * @swagger
+ *  components:
+ *    securitySchemes:
+ *      bearerAuth:        
+ *        type: http
+ *        scheme: bearer
+ *        bearerFormat: JWT  
+ */
+
+/**
+ * @swagger
  * tags:
  *  name: Waste
  *  description: API to manage wastes.
@@ -54,8 +63,15 @@ const auth = require('../middlewares/auth');
  * path:
  * /api/wastes:
  *   get:
+ *    security:
+ *      - bearerAuth: []
  *    summary: List all wastes
  *    tags: [Waste]
+ *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
  *    responses:
  *      "200":
  *        description: Returns a list of wastes.
@@ -73,9 +89,15 @@ router.get('/', [auth], wasteController.getAll);
  * path:
  * /api/wastes/{id}:
  *   get:
+ *    security:
+ *      - bearerAuth: []
  *    summary: Return a single waste record
  *    tags: [Waste]
  *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
  *      - in: path
  *        name: id
  *        required: true
@@ -95,8 +117,15 @@ router.get('/:id', [auth], wasteController.getOne);
  * path:
  * /api/wastes:
  *   post:
+ *    security:
+ *      - bearerAuth: []
  *    summary: Creates a new waste record
  *    tags: [Waste]
+ *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
  *    requestBody:
  *      required: true
  *      content:
@@ -118,9 +147,15 @@ router.post('/', [auth], wasteController.create);
  * put:
  * /api/wastes/{id}:
  *   put:
+ *    security:
+ *      - bearerAuth: []
  *    summary: Updates an existing waste record
  *    tags: [Waste]
  *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
  *      - in: path
  *        name: id
  *        required: true
@@ -146,9 +181,15 @@ router.put('/:id', [auth], wasteController.update);
  * path:
  * /api/wastes/{id}:
  *   delete:
+ *    security:
+ *      - bearerAuth: []
  *    summary: Delete an existing waste record
  *    tags: [Waste]
  *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
  *      - in: path
  *        name: id
  *        required: true

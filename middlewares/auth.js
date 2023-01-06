@@ -4,7 +4,10 @@ const User = require('../models/user');
 module.exports = (req, res, next) => {
     try {
         const username = req.headers.username;
-        const token = req.headers.token;
+        let token = req.headers.token;
+        if(token === undefined){
+            token = (req.headers.authorization).replace("Bearer ", "");
+        }
         const decodeToken = jwt.verify(token, process.env.JWT_KEY);
         User.findById(decodeToken.userId)
             .then((user) => {
