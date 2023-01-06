@@ -9,17 +9,17 @@
   "redirects": [
     {
       "source": "/api/wastes",
-      "destination": "/api/wastes",
+      "destination": "/routes/waste",
       "permanent": false
     },
     {
       "source": "/api/auth",
-      "destination": "/api/auth",
+      "destination": "/routes/user",
       "permanent": false
     },
     {
       "source": "/soap",
-      "destination": "/soap",
+      "destination": "/routes/soapSubstract",
       "permanent": false
     }
   ]
