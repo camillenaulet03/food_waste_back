@@ -2,24 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "*.js",
+      "src": "**/*.js",
       "use": "@vercel/node"
     }
   ],
   "redirects": [
     {
       "source": "/api/wastes",
-      "destination": "/routes/waste",
+      "destination": "/api/wastes",
       "permanent": false
     },
     {
       "source": "/api/auth",
-      "destination": "/routes/user",
+      "destination": "/api/auth",
       "permanent": false
     },
     {
       "source": "/soap",
-      "destination": "/routes/soapSubstract",
+      "destination": "/soap",
       "permanent": false
     }
   ]
