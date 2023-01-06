@@ -7,6 +7,7 @@ const logger = require('./log/logger');
 
 const userRoutes = require('./routes/user');
 const wasteRoutes = require('./routes/waste');
+const soapSubstractRoutes = require('./routes/soapSubstract');
 
 const app = express();
 app.use(helmet())
@@ -26,6 +27,7 @@ mongoose.connect("mongodb+srv://"+process.env.DB_USER+":"+process.env.DB_PASSWOR
 
 
 app.use('/api/auth', userRoutes)
-  .use('/api/wastes', wasteRoutes);
+   .use('/api/wastes', wasteRoutes)
+   .use('/soap', soapSubstractRoutes);
 
 module.exports = app;
