@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const wasteController = require('../controllers/waste');
+const auth = require('../middlewares/auth');
 
 /**
  * @swagger
@@ -65,7 +66,7 @@ const wasteController = require('../controllers/waste');
  *      "404":
  *        description: Not found
  */
-router.get('/', wasteController.getAll);
+router.get('/', [auth], wasteController.getAll);
 
 /**
  * @swagger
@@ -87,7 +88,7 @@ router.get('/', wasteController.getAll);
  *            schema:
  *              $ref: '#/components/schemas/Waste'
  */
-router.get('/:id', wasteController.getOne);
+router.get('/:id', [auth], wasteController.getOne);
 
 /**
  * @swagger
@@ -110,7 +111,7 @@ router.get('/:id', wasteController.getOne);
  *            schema:
  *              $ref: '#/components/schemas/Waste'
  */
-router.post('/', wasteController.create);
+router.post('/', [auth], wasteController.create);
 
 /**
  * @swagger
@@ -138,7 +139,7 @@ router.post('/', wasteController.create);
  *            schema:
  *              $ref: '#/components/schemas/Waste'
  */
-router.put('/:id', wasteController.update);
+router.put('/:id', [auth], wasteController.update);
 
 /**
  * @swagger
@@ -156,6 +157,6 @@ router.put('/:id', wasteController.update);
  *      "200":
  *        description: The waste has been deleted
  */
-router.delete('/:id', wasteController.delete);
+router.delete('/:id', [auth], wasteController.delete);
 
 module.exports = router;

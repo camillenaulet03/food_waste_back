@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const logger = require('./log/logger');
+const cors = require('cors');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -14,6 +15,8 @@ const wasteRoutes = require('./routes/waste');
 const soapSubstractRoutes = require('./routes/soapSubstract');
 
 const app = express();
+
+app.use(cors());
 app.use(helmet())
   .use(compression())
   .use(bodyParser.json())

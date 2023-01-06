@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user');
+const auth = require("../middlewares/auth");
 
 /**
  * @swagger
@@ -129,6 +130,6 @@ router.post('/login', userController.login);
  *      "200":
  *        description: user deleted.
  */
-router.post('/logout', userController.logout);
+router.post('/logout', [auth], userController.logout);
 
 module.exports = router;
