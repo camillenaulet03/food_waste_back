@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const wasteController = require('../controllers/waste');
-const auth = require('../middlewares/auth');
+const wasteController = require('../../controllers/waste');
+const auth = require('../../middlewares/auth');
 
 /**
  * @swagger
