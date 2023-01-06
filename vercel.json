@@ -22,5 +22,11 @@
       "destination": "/routes/soapSubstract",
       "permanent": false
     }
-  ]
+  ],
+  "functions": {
+    "**/*.js": {
+      "memory": 3008,
+      "maxDuration": 30
+    }
+  }
 }
