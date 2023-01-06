@@ -3,22 +3,22 @@
   "redirects": [
     {
       "source": "/api/wastes",
-      "destination": "/routes/waste",
+      "destination": "/api/routes/waste",
       "permanent": false
     },
     {
       "source": "/api/auth",
-      "destination": "/routes/user",
+      "destination": "/api/routes/user",
       "permanent": false
     },
     {
       "source": "/soap",
-      "destination": "/routes/soapSubstract",
+      "destination": "/api/routes/soapSubstract",
       "permanent": false
     }
   ],
   "functions": {
-    "**/*.js": {
+    "api/**/*.js": {
       "memory": 1024,
       "maxDuration": 10
     }

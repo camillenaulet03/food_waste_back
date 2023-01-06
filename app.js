@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const logger = require('./log/logger');
+const logger = require('./api/log/logger');
 const cors = require('cors');
 
 const swaggerUi = require('swagger-ui-express');
