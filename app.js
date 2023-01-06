@@ -3,7 +3,6 @@ const compression = require('compression');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const serverless = require('serverless-http')
 
 const logger = require('./log/logger');
 const cors = require('cors');
@@ -62,4 +61,4 @@ app.use('/api/auth', userRoutes)
    .use('/soap', soapSubstractRoutes)
    .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options), { explorer: true }));
 
-module.exports = serverless(app);
+module.exports = app;
