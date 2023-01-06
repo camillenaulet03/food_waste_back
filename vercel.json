@@ -11,5 +11,22 @@
       "src": "/(.*)",
       "dest": ""
     }
+  ],
+  "redirects": [
+    {
+      "source": "/api/wastes",
+      "destination": "/routes/waste",
+      "permanent": false
+    },
+    {
+      "source": "/api/auth",
+      "destination": "/routes/user",
+      "permanent": false
+    },
+    {
+      "source": "/soap",
+      "destination": "/routes/soapSubstract",
+      "permanent": false
+    }
   ]
 }
