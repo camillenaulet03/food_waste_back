@@ -1,9 +1,8 @@
 const soapRequest = require('easy-soap-request');
-const fs = require('fs');
 const xml2js = require('xml2js');
 
 exports.substract = (req, res, next) => {
-    if(isNaN(req.body.number1) && isNaN(req.body.number2) && req.body.number1 !== '' && req.body.number2 !== '') {
+    if (!isNaN(req.body.number1) && !isNaN(req.body.number2) && req.body.number1 !== '' && req.body.number2 !== '') {
         const url = 'http://www.dneonline.com/calculator.asmx';
         const headers = {
             'Content-Type': 'text/xml;charset=UTF-8',
