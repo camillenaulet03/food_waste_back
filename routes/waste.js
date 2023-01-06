@@ -111,7 +111,7 @@ router.get('/:id', [auth], wasteController.getOne);
  *            schema:
  *              $ref: '#/components/schemas/Waste'
  */
-router.post('/', [auth], wasteController.create);
+// router.post('/', [auth], wasteController.create);
 
 /**
  * @swagger
