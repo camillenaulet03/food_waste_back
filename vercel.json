@@ -17,10 +17,7 @@
       "permanent": false
     }
   ],
-  "functions": {
-    "**/*": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  "builds": [
+    { "src": "**/*", "use": "@vercel/node" }
+  ]
 }
