@@ -12,6 +12,10 @@ L'objectif est concevoir un Web Service (API REST) avec un [front-end](https://g
 
 **Contexte**
 
+API pour limiter le gaspillage alimentaire.
+
+On propose au grand groupe de pouvoir nous dire leur stocks qui leur reste et de les mettre à disposition de ceux qui souhaitent les récupérer Le reste des produits alimentaires pourront partir au compost s'ils ne sont pas récupérés ou que la date de péremption des produits est dépassée.
+
 **Les objectifs à remplir :**
 
 Consignes pour le web service :
@@ -26,13 +30,6 @@ Consignes pour le web service :
 Ce qui a été réaliser en plus pour le web service :
 
 - [x] Swagger
-
-Consignes pour le front :
-
-- [x] Authentification
-- [x] Afficher des inputs pour interagir avec le WS (boutons pour récupérer des datas, filtres, champs de recherche...)
-- [x] Afficher les résultats renvoyés par le WS de manière présentable
-- [ ] Déploiement
 
 **Contributeurs:**
 
