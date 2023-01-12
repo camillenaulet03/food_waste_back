@@ -15,9 +15,12 @@ const userRoutes = require('./routes/user');
 const wasteRoutes = require('./routes/waste');
 const soapSubstractRoutes = require('./routes/soapSubstract');
 
+
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:8080/', 'http://localhost:8081/', 'https://different-vest-eel.cyclic.app/']
+}));
 app.use(helmet())
   .use(compression())
   .use(bodyParser.json())
@@ -49,6 +52,9 @@ const options = {
     servers: [
       {
         url: "http://localhost:8080",
+      },
+      {
+        url: "https://different-vest-eel.cyclic.app/",
       },
     ],
   },
