@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const logger = require('./log/logger');
 const cors = require('cors');
+const { loginRateLimiter } = require('./middlewares/rateLimiter');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -56,7 +57,8 @@ const options = {
 };
 
 // Routes
-app.use('/api/auth', userRoutes)
+app.use(loginRateLimiter)
+   .use('/api/auth', userRoutes)
    .use('/api/wastes', wasteRoutes)
    .use('/soap', soapSubstractRoutes)
    .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options), { explorer: true }));
