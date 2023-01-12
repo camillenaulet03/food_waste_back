@@ -21,10 +21,12 @@ On propose au grand groupe de pouvoir nous dire leur stocks qui leur reste et de
 Consignes pour le web service :
 
 - [x] Lier à une base de données
+  - MongoDB Atlas
 - [x] Avoir un service d’authentification
 - [x] Logger les évènements
 - [x] Cacher les infos sensibles
-- [x] Utiliser une api soap
+- [x] Utiliser une API SOAP
+  - https://documenter.getpostman.com/view/8854915/Szf26WHn#3c0efdff-47f8-4216-b731-1e965e1057e8
 - [ ] Déploiement
 
 Ce qui a été réaliser en plus pour le web service :

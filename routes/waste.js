@@ -200,4 +200,34 @@ router.put('/:id', [auth], wasteController.update);
  */
 router.delete('/:id', [auth], wasteController.delete);
 
+/**
+ * @swagger
+ * path:
+ * /api/wastes/find:
+ *   post:
+ *    security:
+ *      - bearerAuth: []
+ *    summary: Find a waste
+ *    tags: [Waste]
+ *    parameters:
+ *      - in: header
+ *        name: username
+ *        required: true
+ *        description: username of user to check token
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Waste'
+ *    responses:
+ *      "200":
+ *        description: Returns the waste find.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Waste'
+ */
+router.post('/find', [auth], wasteController.filter);
+
 module.exports = router;

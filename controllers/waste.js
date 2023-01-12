@@ -73,3 +73,19 @@ exports.delete = (req, res, next) => {
     })
 }
 
+exports.filter = (req, res, next) => {
+    const wasteValidationSchema = Joi.object({
+        label: Joi.string().required()
+    }) 
+
+    const { error, value } = wasteValidationSchema.validate(req.body)
+    if(error) res.status(500).json({message: error.message})
+    else{
+        Waste.find({label : {'$regex': value.label} })
+            .then((data) => res.status(200).json(data))
+            .catch(() => {
+                res.status(500).json({message: 'Error during finding waste'});
+                logger.error(`Error during finding waste : ${e}`);
+            }); 
+    }
+}
