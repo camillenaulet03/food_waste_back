@@ -18,9 +18,7 @@ const soapSubstractRoutes = require('./routes/soapSubstract');
 
 const app = express();
 
-app.use(cors({
-  origin: ['http://localhost:8080/', 'http://localhost:8081/', 'https://different-vest-eel.cyclic.app/', 'https://stately-sawine-318119.netlify.app/']
-}));
+app.use(cors());
 app.use(helmet())
   .use(compression())
   .use(bodyParser.json())
